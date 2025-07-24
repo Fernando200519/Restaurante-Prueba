@@ -1,0 +1,6 @@
+.card {
+  width: 400px;
+  display: flex; /* O display: grid; */
+  flex-direction: column; /* Para apilar los elementos verticalmente */
+  gap: 50px; /* ¡Esto añade 20px entre cada elemento! */
+}

@@ -1,0 +1,20 @@
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  position: absolute;
+  left: 15px;
+  width: 20px;
+}
+
+.input {
+  padding-left: 45px;
+  height: 70px;
+  width: 100%;
+  font-size: 20px;
+  border: 1.5px solid #dddddd;
+  border-radius: 8px;
+}

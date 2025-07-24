@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  background-color: #fa9623;
+  height: 100vh;
+}
+
+.contenedor {
+  display: flex; /* Convierte el contenedor padre en un flex container */ /* Alinea los ítems al final del eje principal (derecha) */
+  justify-content: space-between;
+}
+
+.img_logo {
+  width: 125px;
+  display: block; /* Convierte la imagen en un elemento de bloque */
+  margin: 0 auto; /* Centra horizontalmente */
+}
+
+.card_logo {
+  width: 80%;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.logo_container {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_container {
+  width: 50%;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eslogan_logo {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 100;
+  text-align: center;
+}
+
+.titulo_logo {
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Poppins";
+  text-align: center;
+}
+.titulo {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.subtitulo {
+  font-size: 20px;
+  font-weight: 400px;
+  color: #666666;
+}
+
+.contenedor_input {
+  display: flex; /* O display: grid; */
+  flex-direction: column; /* Para apilar los elementos verticalmente */
+  gap: 20px; /* ¡Esto añade 20px entre cada elemento! */
+}
