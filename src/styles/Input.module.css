@@ -18,3 +18,10 @@
   border: 1.5px solid #dddddd;
   border-radius: 8px;
 }
+
+.eyeIcon {
+  position: absolute;
+  right: 0;
+  margin-right: 25px;
+  cursor: pointer;
+}
