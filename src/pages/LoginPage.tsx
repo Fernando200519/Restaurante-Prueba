@@ -5,8 +5,8 @@ import Input from "../components/Input";
 import Button from "../components/Button.tsx";
 import styles from "../styles/LoginPage.module.css";
 import iconLogo from "../assets/logo.svg";
-import eyeOpenIcon from "../assets/ojo_abierto.svg"; // Agrega esta línea
-import eyeClosedIcon from "../assets/ojo_cerrado.svg"; // Agrega esta línea
+import eyeOpenIcon from "../assets/ojo_abierto.svg";
+import eyeClosedIcon from "../assets/ojo_cerrado.svg";
 import { useState } from "react";
 
 function LoginPage() {
@@ -17,7 +17,7 @@ function LoginPage() {
   });
 
   // Función que se ejecuta cuando el usuario escribe en los inputs
-  const manejarCambio = (campo: string, valor: string) => {
+  const actualizarCambio = (campo: string, valor: string) => {
     setDatosFormulario((prev) => ({
       ...prev,
       [campo]: valor,
@@ -34,12 +34,10 @@ function LoginPage() {
 
   // Función que se ejecuta cuando se hace clic en "Iniciar sesión"
   const manejarEnvio = (e: React.FormEvent) => {
-    // e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault(); // Evita que la página se recargue
 
-    // Aquí puedes ver lo que escribió el usuario
     console.log("Usuario escribió:", datosFormulario);
 
-    // Validaciones básicas
     if (!datosFormulario.usuario) {
       alert("Por favor ingresa tu usuario");
       return;
@@ -50,8 +48,6 @@ function LoginPage() {
       return;
     }
 
-    // Aquí iría la lógica para verificar usuario y contraseña
-    // Por ahora solo mostramos un mensaje
     alert(
       `Intentando iniciar sesión con usuario: ${datosFormulario.usuario} y contraseña: ${datosFormulario.contrasena}`
     );
@@ -75,39 +71,42 @@ function LoginPage() {
 
       <div className={["contenedor-login", styles.login_container].join(" ")}>
         <Card>
-          <h1 className={styles.titulo}>Iniciar sesión</h1>
-
           <form onSubmit={manejarEnvio} className={styles.contenedor_input}>
-            <label className={styles.subtitulo} htmlFor="usuario">
-              Usuario
-            </label>
-            <Input
-              icon={userIcon}
-              id="usuario"
-              placeholder="Ingrese tu nombre de usuario"
-              tipo="text"
-              valor={datosFormulario.usuario}
-              alCambiar={(valor) => manejarCambio("usuario", valor)}
-            ></Input>
+            <h1 className={styles.titulo}>Iniciar sesión</h1>
+            <div className={styles.contenedor_input_interno}>
+              <label className={styles.subtitulo} htmlFor="usuario">
+                Usuario
+              </label>
+              <Input
+                icon={userIcon}
+                id="usuario"
+                placeholder="Ingrese tu nombre de usuario"
+                tipo="text"
+                valor={datosFormulario.usuario}
+                alCambiar={(nuevoValor) =>
+                  actualizarCambio("usuario", nuevoValor)
+                }
+              ></Input>
 
-            <label className={styles.subtitulo} htmlFor="contrasena">
-              Contraseña
-            </label>
-            <Input
-              icon={lockIcon}
-              id="contrasena"
-              placeholder="Ingrese tu contraseña"
-              tipo={mostrarContrasena ? "text" : "password"}
-              valor={datosFormulario.contrasena}
-              alCambiar={(valor) => manejarCambio("contrasena", valor)}
-              // Props nuevas para el ojo
-              tieneTogglePassword={true}
-              passwordVisible={mostrarContrasena}
-              iconoOjoAbierto={eyeOpenIcon}
-              iconoOjoCerrado={eyeClosedIcon}
-              alTogglePassword={alternarVisibilidadContrasena}
-              mostrarToggleSoloConTexto={true}
-            />
+              <label className={styles.subtitulo} htmlFor="contrasena">
+                Contraseña
+              </label>
+              <Input
+                icon={lockIcon}
+                id="contrasena"
+                placeholder="Ingrese tu contraseña"
+                tipo={mostrarContrasena ? "text" : "password"}
+                valor={datosFormulario.contrasena}
+                alCambiar={(valor) => actualizarCambio("contrasena", valor)}
+                // Props nuevas para el ojo
+                tieneTogglePassword={true}
+                passwordVisible={mostrarContrasena}
+                iconoOjoAbierto={eyeOpenIcon}
+                iconoOjoCerrado={eyeClosedIcon}
+                alTogglePassword={alternarVisibilidadContrasena}
+                mostrarToggleSoloConTexto={true}
+              />
+            </div>
             <Button tipo="submit">Iniciar sesión</Button>
           </form>
         </Card>

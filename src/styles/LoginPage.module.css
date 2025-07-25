@@ -68,5 +68,11 @@ body {
 .contenedor_input {
   display: flex; /* O display: grid; */
   flex-direction: column; /* Para apilar los elementos verticalmente */
-  gap: 20px; /* ¡Esto añade 20px entre cada elemento! */
+  gap: 55px; /* ¡Esto añade 20px entre cada elemento! */
+}
+
+.contenedor_input_interno {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

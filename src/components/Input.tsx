@@ -1,12 +1,10 @@
-import type { ReactNode } from "react";
 import styles from "../styles/Input.module.css";
 
 type Props = {
-  children?: ReactNode;
   placeholder: string;
   id: string;
   icon: string;
-  tipo?: string; // "text", "password", "email", etc.
+  tipo?: string;
   valor?: string; // Lo que está escrito en el input
   alCambiar?: (valor: string) => void; // Función que se ejecuta cuando el usuario escribe
   // Props nuevas para el toggle de contraseña
@@ -20,7 +18,6 @@ type Props = {
 
 function Input({
   id,
-  children,
   placeholder,
   icon,
   tipo = "text",
@@ -67,8 +64,6 @@ function Input({
           onClick={alTogglePassword}
         />
       )}
-
-      {children}
     </div>
   );
 }
